@@ -33,12 +33,18 @@ Los datos se obtuvieron de una Base de Datos __ORACLE__ pues en ella se encuentr
 el análisis exploratorio más detallado. Se contó inicialmente con los siguientes conjuntos de datos:
 
 - [datos_polizas.csv](datasets/datos_polizas.csv)
+- [datos_polizas_2.csv](datasets/datos_polizas_2.csv)
+- [datos_polizas_3.csv](datasets/datos_polizas_3.csv)
 - [datos_siniestros.csv](datasets/datos_siniestros.csv)
+- [datos_siniestros_2.csv](datasets/datos_siniestros_2.csv)
 
 Previo a la carga de datos, se reviso la información a recuperar por ello se extrajo tanto de las pólizas en vigor o vigentes como de los siniestros ocurridos en los ultimos 4 años.
 Se analizo la información obtenida y derivado de esto se determino que los datos mas acordes **para los fines de este proyecto únicamente son los referentes a los siniestros**.
 
-El proceso de obtención de los datos así como el de extracción de la información se puede consultar en los siguientes [*scripts*](scripts/datos_polizas.sql) (scripts/datos_siniestros.sql).
+El proceso de obtención de los datos así como el de extracción de la información se puede consultar en los siguientes [*scripts*]
+
+- [Polizas](scripts/datos_polizas.sql) 
+- [Siniestros] (scripts/datos_siniestros.sql).
 
 ---
 
