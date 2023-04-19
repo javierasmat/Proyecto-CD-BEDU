@@ -4,35 +4,26 @@
 *Javier E. Asmat Venegas*   
 
 ![imagen](imagenes/seguro_vida.jpg)
-##### [Imagen de rawpixel.com en Freepik](https://www.freepik.es/vector-gratis/ilustracion-seguro-vida_2605710.htm#page=2&query=seguro%20vida&position=25&from_view=keyword&track=ais)
+###### [Imagen de rawpixel.com en Freepik](https://www.freepik.es/vector-gratis/ilustracion-seguro-vida_2605710.htm#page=2&query=seguro%20vida&position=25&from_view=keyword&track=ais)
 ---
 
 ### :capital_abcd: Introducción
-Este proyecto está basado en el reto *Survival Patterns of Cancers* disponible en la plataforma [Kaggle](https://www.kaggle.com/saurabhshahane/survival-patterns-of-cancers).
-Este proyecto incluye tres conjuntos de datos:
+El proyecto se basa en datos reales obtenidos de los ultimos 4 años de una compañia de seguros. Los datos corresponden a los siniestros ocurridos en dicho periodo de tiempo obteniendose entre otros
+datos las causas de dicho siniestro. Se evaluo solo casos de personas fallecidas. Dentro de la información que se evalua además de las causas del fallecimiento se considera el sexo y la edad de la
+persona fallecida.
 
-- Datos sobre cancer de esófago.
-- Datos sobre cancer colorectal.
-- Datos sobre cancer de próstata.
+### :dart: Objetivos y Tareas
 
-cada uno de los cuales incluye información sociodemográfica, características de los pacientes, signos, síntomas, 
-características de imagen e histológicas así como el estudio [TNM](https://en.wikipedia.org/wiki/TNM_staging_system) del 
-cáncer. Así mismo incluye opciones de tratamiento que recibió el paciente así como el estado del mismo (si falleció o
-no).
+- Obtener los datos de un modelo de base de datos relacional y extraer los datos a un formato CSV.
 
-#### :dart: Objetivos y Tareas
+- Realizar análisis exploratorio de los datos con el fin de obtener estadísticas sobre los datos obtenidos.
 
-- Cargar los datos en un modelo de base de datos relacional.
+- Utilizar __Python__ sobre la IDE __Jupyter Notebooks__ para realizar labores de predicción, clasificación, entre otras posibles.
 
-- Realizar un análisis exploratorio de dato con el fin de obtener estadísticas sobre los datos obtenidos.
+- Realizar labores de limpieza de los datos con el fin de tener un conjunto de datos limpio y bien estructurado que permita realizar las tareas de predicción y/o clasificación.
 
-- Conectar la base de datos con __Python__ sobre su herramienta __Jupyter Notebooks__ para realizar labores de 
-  predicción, clasificación, entre otras posibles.
-
-- Con base en el campo que nos permite determinar si el paciente sobrevivió o no, evaluar distintos tipos de modelos de regresión y clasificación con el fin de encontrar el mejor posible para predecir este dato con nuevos pacientes.
-
-- Por supuesto, realizar actividades de preprocesamiento de los datos con el fin de tener un conjunto de datos limpio
-  y bien estructurado que facilite las tareas de predicción y/o clasificación.
+- Con base en el campo que nos permite determinar si el paciente tuvo COVID o no, evaluaremos diferentes modelos de regresión y clasificación con el fin de encontrar el mejor posible para 
+predecir este dato en otros asegurados.
 
 ---
 
