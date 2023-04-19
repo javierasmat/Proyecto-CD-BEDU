@@ -3,8 +3,8 @@
 **Data Science - BEDU**   
 *Javier E. Asmat Venegas*   
 
-![imagen](imagenes/dataset-card.jpg)
-
+![imagen](imagenes/seguro_vida.jpg)
+##### [Imagen de rawpixel.com en Freepik](https://www.freepik.es/vector-gratis/ilustracion-seguro-vida_2605710.htm#page=2&query=seguro%20vida&position=25&from_view=keyword&track=ais)
 ---
 
 ### :capital_abcd: Introducción
