@@ -41,10 +41,10 @@ el análisis exploratorio más detallado. Se contó inicialmente con los siguien
 Previo a la carga de datos, se reviso la información a recuperar por ello se extrajo tanto de las pólizas en vigor o vigentes como de los siniestros ocurridos en los ultimos 4 años.
 Se analizo la información obtenida y derivado de esto se determino que los datos mas acordes **para los fines de este proyecto únicamente son los referentes a los siniestros**.
 
-El proceso de obtención de los datos así como el de extracción de la información se puede consultar en los siguientes [*scripts*]
+El proceso de obtención de los datos así como el de extracción de la información se puede consultar en los siguientes scripts:
 
 - [Polizas](scripts/datos_polizas.sql) 
-- [Siniestros] (scripts/datos_siniestros.sql).
+- [Siniestros](scripts/datos_siniestros.sql)
 
 ---
 
