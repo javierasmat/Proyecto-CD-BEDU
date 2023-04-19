@@ -27,23 +27,18 @@ predecir este dato en otros asegurados.
 
 ---
 
-### :ballot_box_with_check: Carga y preprocesamiento de datos
+### :ballot_box_with_check: Obtención y extracción de los datos
 
-Se obtó por usar el Gestor de Bases de Datos __PostgreSQL__ pues sus cláusulas `CUBE` y `ROLLUP` nos permiten realizar
-un análisis exploratorio más detallado. Se contó inicialmente con los siguientes conjuntos de datos:
+Los datos se obtuvieron de una Base de Datos __ORACLE__ pues en ella se encuentran los datos sobre los que realizaremos
+el análisis exploratorio más detallado. Se contó inicialmente con los siguientes conjuntos de datos:
 
-- [colorectal.csv](datasets/colorectal.csv)
-- [esophageal.csv](datasets/esophageal.csv)
-- [prostate.csv](datasets/postate.csv)
+- [datos_polizas.csv](datasets/datos_polizas.csv)
+- [datos_siniestros.csv](datasets/datos_siniestros.csv)
 
-Previo a la carga de datos, se analizó la estructura de cada archivo para determinar si era necesario crear nuevas 
-tablas. Derivado de este análisis se notó que no había una equivalencia directa entre estas tablas, por lo que se optó analizar cada conjunto de datos individualmente, sin embargo, **para los fines de este proyecto únicamente se analizaron los datos de cáncer de esófago**.
+Previo a la carga de datos, se reviso la información a recuperar por ello se extrajo tanto de las pólizas en vigor o vigentes como de los siniestros ocurridos en los ultimos 4 años.
+Se analizo la información obtenida y derivado de esto se determino que los datos mas acordes **para los fines de este proyecto únicamente son los referentes a los siniestros**.
 
-No se ocuparon todos los datos pues no eran relevantes para el proyecto. Con el fin de no perder los datos originales, se creó una vista (`esophageal_clean`). Las diferencias entre la tabla original y la vista se muestran en el siguiente diagrama:
-
-<center><img src="imagenes/base.png" width="25%" height="25%"></center>
-
-Notar el cambio en los tipos de datos. El proceso de cambio y la construcción de la vista se puede consultar en el siguiente [*script*](limpieza/esophageal.sql) y puede replicarse para los otros dos conjuntos de datos, cuidando que las columnas sean del tipo adecuado y evitando los valores nulos.
+El proceso de obtención de los datos así como el de extracción de la información se puede consultar en los siguientes [*scripts*](scripts/datos_polizas.sql) (scripts/datos_siniestros.sql).
 
 ---
 
