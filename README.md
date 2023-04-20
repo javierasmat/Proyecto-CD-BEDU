@@ -50,7 +50,7 @@ El proceso de obtención de los datos así como el de extracción de la informac
 
 ### :ballot_box_with_check: Análisis Exploratorio de Datos
 
-<details><summary><strong>Análisis de tendencia central y visual por medio de Pandas (<em><a href="notebooks/eda.ipynb">notebook</a>)</em></strong> </summary>
+<details><summary><strong>Análisis de tendencia central y visual por medio de Pandas (<em><a href="notebooks/aed.ipynb">notebook</a>)</em></strong> </summary>
 	<p>
 
 **Variables numéricas (edad)**
