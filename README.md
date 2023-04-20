@@ -79,102 +79,76 @@ El proceso de obtención de los datos así como el de extracción de la informac
 
 - Diagrama de caja e Histograma
 
-	El siguiente diagrama confirma los resultados anteriores. Los bigotes nos indican que los valores de 18 y 95 son *raros* por lo que se consideran atípicos.
+	El siguiente diagrama confirma los resultados anteriores. Los bigotes nos indican que los valores de 19 y 98 son *raros* por lo que se consideran atípicos.
 
 	![imagen](imagenes/boxplot.png)
 
-	Dato que también podemos comprobar con un histograma. Los valores más elevados corresponden con el promedio y los más pequeños con los valores atípicos que muestra el diagrama de caja.
+	Podemos comprobar esto con un histograma. Los valores más elevados corresponden con el promedio y los más pequeños con los valores atípicos que muestra el diagrama de caja.
 
 	![imagen](imagenes/histograma.png)
 
 **Variables categóricas**
 
-- Moda de algunas de las variables
-
-  ```
-  region   sex  alcohol  tobacco  khat  pain_swallowing  weight_loss
-  OROMIA   0.0      1.0      1.0   1.0              1.0          1.0
-  ```
-  ```   
-   cough  status_patient  
-     1.0             1.0  
-  ```
-
-  Interpretación:
-
-  - La mayoría de casos se encuentran en OROMIA.
-  - La mayoría de casos son del genero '0'.
-  - La mayoría de casos toman alcohol.
-  - La mayoría de casos fuman tabaco.
-  - La mayoría de casos fuman khat.
-  - La mayoría de casos tienen dolor al tragar.
-  - La mayoría de casos perdieron peso.
-
-- Tabla de contingencia (causas)
+- Tabla de contingencia (causa COVID x Sexo x Edad)
 
    ```
-   khat            0            1             total
-   alcohol         0     1      0      1           
-   tobacco         0  1  0   1  0   1  0    1      
-   status_patient                                  
-   0               0  0  0  10  1   4  0   24    39
-   1               6  6  4  66  8  37  3  180   310
-   total           6  6  4  76  9  41  3  204   349
+   SEXO	    0	     1	    total
+   COVID	0	1	 0	  1	
+   EDAD					
+   19	    1	0	 3	  0	    4
+   20	    0	0	 3	  0	    3
+   21	    1	0	 8	  0	    9
+   22	    3	0	24	  0	   27
+   23	    5	0	21	  0	   26
+   ...	...	...	...	...	...
+   93   	1	0	 1	  0	    2
+   94	    0	0	 1	  0	    1
+   97    	1	0	 0	  0	    1
+   98	    2	0	 0	  0	    2
+   total 2180 417 6318 1536	10451
    ```
-
-   ![imagen](imagenes/causas.png)
 
    Algunas interpretaciones:
 
-   - 204 personas tomaban alcohol y fumaban tanto tabaco como khat de las cuales sobrevivieron 24 y fallecieron 180.
-   - 76 personas tomaban alcohol y fumaban tabaco pero no khat de las cuales sobrevivieron 10 y fallecieron 66.
-   - 6 personas no tomaban alcohol y no fumaban ni tabaco ni khat de las cuales fallecieron todas.
+   - 417 mujeres fallecieron a causa del COVID.
+   - 1536 hombres fallecieron a causa del COVID.
+   - 8498 personas (hombres y mujeres) fallecieron por otras causas o tuvieron algún siniestro que no causo fallecimiento.
 
-- Tabla de contingencia (síntomas)
+- Tabla de contingencia (fallecidos por sospecha de covid)
 
    ```
-   pain_swallowing  0          1              total
-   cough            0   1      0       1           
-   weight_loss      0   0  1   0  1    0    1      
-   status_patient                                  
-   0                1   2  1   1  0    9   25    39
-   1                1   8  6  11  6  109  169   310
-   total            2  10  7  12  6  118  194   349
+   COVID	        0 	       1	total
+   SOSPECHA COVID	0	  1	   0	
+   SEXO				
+     0	         2060	120	 417	2597
+     1	         5863	455	1536	7854
+   total	     7923	575	1953	10451
    ```
-
-   ![imagen](imagenes/sintomas.png)
 
    Algunas interpretaciones:
 
-   - 118 personas tuvieron dolor al tragar y tos pero no perdieron peso, de las cuales sobrevivieron 9 y fallecieron 109.
-   - 194 personas tuvieron dolor al tragar, todos y perdida de peso, de las cuales sobrevivieron 25 y fallecieron 169.
-   - 12 personas tuvieron dolor al tragar, no tuvieron tos ni perdida de peso, de las cuales sobrevivió 1 y fallecieron 11,
+   - 575 personas (entre hombres y mujeres) fallecieron por sospecha de COVID.
+   - 1953 personas (entre hombres y mujeres) fallecieron a causa de COVID. Los valores coinciden con los mostrados en la tabla anterior.
 
-- Tabla de contingencia (tratamiento)
+- Tabla de contingencia (fallecidos y vivos por sexo)
 
    ```
-   chemotherapy      0              1           total
-   radiotherapy      0       1      0      1         
-   surgery           0    1  0  1   0   1  0  1      
-   status_patient                                    
-   0                 2   17  1  1  10   4  2  2    39
-   1               109  120  6  4  46  15  7  3   310
-   total           111  137  7  5  56  19  9  5   349
+   FALLECIDO	N	   S	total
+   SEXO			
+           0  808	1789	 2597
+           1 1990	5864	 7854
+   total  	 2798	7653	10451
    ```
-
-   ![imagen](imagenes/tratamiento.png)
-
 
    Algunas interpretaciones:
 
-   - 56 personas fueron tratadas con quimiterapia sin radioterapia ni cirugía de las cuales 10 sobrevivieron y 46 murieron.
-   - 137 personas fueron operadas, no tuvieron quimiterapia ni radioterapia, de las cuales 17 sobrevivieron y 120 murieron.
-   - 111 personas no recibieron ningún tratamiento, de las cuales 2 sobrevivieron y 109 murieron.
+   - 2597 mujeres sufrieron algún siniestro de las cuales 808 permanecen vivos y 1789 fallecieron.
+   - 7854 hombres sufrieron algún siniestro de los cuales 1990 permanecen vivos y 5864 fallecieron.
 
 </p>
 </details>
 
-Al finalizar esta etapa, se pudo apreciar que el conjunto de datos podría no ser útil para detectar patrones de supervivencia pero sí de fallecimiento.
+Luego de los datos revisados se puede deducir que el conjunto de datos nos permite determinar que asegurados fallecieron y cuales sobrevivieron.
 
 ---
 
