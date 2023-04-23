@@ -156,83 +156,22 @@ Luego de los datos revisados se puede deducir que el conjunto de datos nos permi
 
 A continuación se muestran algunas técnicas de predicción basadas en clasificación.
 
-Para realizar el entrenamiento con todos los modelos se siguieron los siguientes pasos:
-
-1. Como datos de entrada se eligieron todos los campos menos la llave primaria, la región y por supuesto la columna que nos indica el estado del paciente.
-
-1. Como dato de salida se eligió únicamente el estado del paciente.
-
-1. Separar el conjunto de datos en entrenamiento y prueba (70%/30%).
-
-1. Realizar el entrenamiento.
-
 Para analizar los resultados se usó una matriz de confusión.
 
-![imagen](imagenes/matriz_interp.png)
-
-Una interpretación de los resultados de esta matriz, se puede dar mediante las siguientes fórmulas:
-
-1. Precisión: De todas las clasificaciones positivas que hicimos, ¿cuántas de ésas eran en realidad positivas?
-   
-   *precision = VP / (VP + FP)*
-
-1. Exactitud: Del total de clasificaciones que hicimos, ¿cuántas fueron clasificadas correctamente?
-   
-   *exactitud = (VP + VN) / (VP + FN + FP + VN)*
-
-1. Sensibilidad: De todas las clasificaciones positivas que había en realidad, ¿cuántas fueron clasificadas correctamente como positivas?
-   
-   *sensibilidad = VP / (VP + FN)*
-
-1. Especificidad: De todas las clasificaciones negativas que había en realidad, ¿cuántas fueron clasificadas correctamente como negativas?
-   
-   *especificidad = VN / (VN + FP)*
-
-
-Adicionalmente se aplicó PCA para reducir el número de columnas. Con este paso se pretende comparar si todos los modelos definidos tienen alguna mejora. En este caso, ninguno de los modelos presentó una mejora considerable por lo que no se muestan en este documento, sin embargo pueden observarse en el *notebook* de cada modelo. Los resultados de PCA se guardaron en un archivo CSV ([_**notebook**_](notebooks/pca.ipynb)).
-
-El número de componentes se elegió estableciente la varianza de las componentes. En este caso se usó una varianza del 95%. Como referencia se consultó [esta referencia](https://www.mikulskibartosz.name/pca-how-to-choose-the-number-of-components/).
-
-<br/>
-
-<u>**Regresión Lineal**</u>
-
-Se inició este proyecto con la idea de encontrar alguna correlación entre las distintas variables. Sin embargo al sólo contar con una variable cuantitativa, de descartó el uso de una regresión lineal. Esto se puede corroborar con la siguiente gráfica de pares.
-
-<details><summary><strong>Gráfica de pares (<em><a href="notebooks/regresion.ipynb">notebook</a>)</em></strong> </summary>
-	<p>
-
-![imagen](imagenes/regresion.png)
-
-</p>
-</details>
-<br/>
-
-<u>**Clasificación Supervisada**</u>
-
-Podemos usar los datos para *predecir* si un paciente puede o no sobrevivir usando un método de Clasificación Binaria Supervisada dado que sólo tenemos dos posibles valores. Se optó por emplear tres técnicas de clasificación.
-
-<details><summary><strong>Regresión logística (<em><a href="notebooks/logistica.ipynb">notebook</a>)</em></strong> </summary>
-	<p>
-
-Podemos usar regresión logística en este caso la cuál modela el problema por medio del *sigmoidal* que permite dejar los valores en cero de un lado y los de uno en el otro:
-
-<img src="imagenes/sigmoidal.png" width="300" height="300">
-
-Para el modelo generado se obtuvo la siguiente matriz:
-
 ![imagen](imagenes/matriz_confusion.png)
+
+<br/>
 
 Interpretación:
 
 ```
-Precision: 0.941747572815534
-Exactitud: 0.9428571428571428
-Sensibilidad: 1.0
-Especificidad: 0.25
+Precision    : 75.46396722101711%
+Sensibilidad : 99.68163005412289%
+Especificidad:  2.1153846153846154%
+Exactitud    : 75.41258072231524%
 ```
 
-Lo cual nos dice que la precisión, exactitud y sensibilidad es bastante buena. Sin embargo la especificad es muy baja lo cual indica que hubo muchos datos que fueron incorrectamente clasificados como negativos. Dicho de otra forma, el modelo fue bueno para clasificar fallecimientos pero no tanto para sobrevivientes. Esto se debe quizá a que tenemos más datos de fallecimientos.
+Lo cual nos dice que la precisión, exactitud y sensibilidad es bastante buena. Sin embargo la especificad es muy baja lo cual indica que hubo muchos datos que fueron incorrectamente clasificados como negativos.
 
 </p>
 </details>
