@@ -1,5 +1,5 @@
 # Proyecto para Ciencia de Datos (Demo Day)
-## :rocket: Proyecto: Causas de Siniestralidad en Seguros de Vida (ultimos 4 años)
+## :rocket: Proyecto: Siniestralidad por COVID y otras causas en Seguros de Vida (ultimos 4 años)
 **Data Science - BEDU**   
 *Javier E. Asmat Venegas*   
 
@@ -9,8 +9,8 @@
 
 ### :capital_abcd: Introducción
 El proyecto se basa en datos reales obtenidos de los ultimos 4 años de una compañia de seguros. Los datos corresponden a los siniestros ocurridos en dicho periodo de tiempo obteniendose entre otros
-datos las causas de dicho siniestro. Se evaluo solo casos de personas fallecidas. Dentro de la información que se evalua además de las causas del fallecimiento se considera el sexo y la edad de la
-persona fallecida.
+datos las causas de dicho siniestro (COVID y otras causas). Se evaluo casos de personas fallecidas como vivas. Dentro de la información que se evalua además de las causas del siniestro se considera el sexo y la edad de la
+persona o asegurado.
 
 ### :dart: Objetivos y Tareas
 
@@ -20,7 +20,7 @@ persona fallecida.
 
 - Utilizar __Python__ sobre la IDE __Jupyter Notebooks__ para realizar labores de predicción, clasificación, entre otras posibles.
 
-- Realizar labores de limpieza de los datos con el fin de tener un conjunto de datos limpio y bien estructurado que permita realizar las tareas de predicción y/o clasificación.
+- No fue necesario realizar labores de limpieza de los datos pues previamente se obtuve desde una BD con datos ya limpios. Esto permite realizar las tareas de predicción y/o clasificación sin mayor proceso.
 
 - Con base en el campo que nos permite determinar si el paciente tuvo COVID o no, evaluaremos diferentes modelos de regresión y clasificación con el fin de encontrar el mejor posible para 
 predecir este dato en otros asegurados.
@@ -29,7 +29,7 @@ predecir este dato en otros asegurados.
 
 ### :ballot_box_with_check: Obtención y extracción de los datos
 
-Los datos se obtuvieron de una Base de Datos __ORACLE__ pues en ella se encuentran los datos sobre los que realizaremos
+Los datos se obtuvieron de una Base de Datos __ORACLE__ pues en ella se encuentran estos sobre los que realizaremos
 el análisis exploratorio más detallado. Se contó inicialmente con los siguientes conjuntos de datos:
 
 - [datos_polizas.csv](datasets/datos_polizas.csv)
@@ -110,11 +110,11 @@ El proceso de obtención de los datos así como el de extracción de la informac
 
    Algunas interpretaciones:
 
-   - 417 mujeres fallecieron a causa del COVID.
-   - 1536 hombres fallecieron a causa del COVID.
+   - 417 mujeres tuvieron un siniestro a causa del COVID.
+   - 1536 hombres tuvieron un siniestro a causa del COVID.
    - 8498 personas (hombres y mujeres) fallecieron por otras causas o tuvieron algún siniestro que no causo fallecimiento.
 
-- Tabla de contingencia (fallecidos por sospecha de covid)
+- Tabla de contingencia (siniestros por sospecha de covid)
 
    ```
    COVID	        0 	       1	total
@@ -127,8 +127,8 @@ El proceso de obtención de los datos así como el de extracción de la informac
 
    Algunas interpretaciones:
 
-   - 575 personas (entre hombres y mujeres) fallecieron por sospecha de COVID.
-   - 1953 personas (entre hombres y mujeres) fallecieron a causa de COVID. Los valores coinciden con los mostrados en la tabla anterior.
+   - 575 personas (entre hombres y mujeres) tuvieron un siniestro por sospecha de COVID.
+   - 1953 personas (entre hombres y mujeres) tuvieron un siniestro a causa de COVID. Los valores coinciden con los mostrados en la tabla anterior.
 
 - Tabla de contingencia (fallecidos y vivos por sexo)
 
@@ -145,10 +145,28 @@ El proceso de obtención de los datos así como el de extracción de la informac
    - 2597 mujeres sufrieron algún siniestro de las cuales 808 permanecen vivos y 1789 fallecieron.
    - 7854 hombres sufrieron algún siniestro de los cuales 1990 permanecen vivos y 5864 fallecieron.
 
+- Tabla de contigencia (Sexo x Fallecidos x COVID)
+
+   ```
+   FALLECIDO	      N	    S	        total
+   COVID	  0	      1	    0	   1	
+   SEXO					
+       0	782	     26	 1398	 391	 2597
+       1	1912	 78	 4406	1458	 7854
+   total	2694	104	 5804	1849	10451
+   ```
+
+   Algunas interpretaciones:
+
+   - 104 personas que tuvieron COVID sobrevivieron.
+   - 1849 personas que tuvieron COVID fallecieron.
+   - 26 mujeres sobrevivieron al COVID y 391 fallecieron a causa del COVID.
+   - 78 hombres sobrevivieron al COVID y 1458 fallecieron a causa del COVID.
+
 </p>
 </details>
 
-Luego de los datos revisados se puede deducir que el conjunto de datos nos permite determinar que asegurados fallecieron y cuales sobrevivieron.
+Luego de los datos revisados se puede deducir que el conjunto de datos nos permite determinar que asegurados fallecieron y cuales sobrevivieron sea por COVID o por otras causas.
 
 ---
 
@@ -156,7 +174,7 @@ Luego de los datos revisados se puede deducir que el conjunto de datos nos permi
 
 A continuación se muestran algunas técnicas de predicción basadas en clasificación.
 
-Para analizar los resultados se usó una matriz de confusión.
+Para analizar los resultados se usó una matriz de confusión. Primero como dato a predecir el SEXO
 
 ![imagen](imagenes/matriz_confusion.png)
 
@@ -165,13 +183,30 @@ Para analizar los resultados se usó una matriz de confusión.
 Interpretación:
 
 ```
-Precision    : 75.46396722101711%
-Sensibilidad : 99.68163005412289%
-Especificidad:  2.1153846153846154%
-Exactitud    : 75.41258072231524%
+Precision     : 75.87370450711015%
+Sensibilidad  : 99.74651457541192%
+Especificidad :  2.341463414634146%
+Exactitud     : 75.86701745993781%
 ```
 
-Lo cual nos dice que la precisión, exactitud y sensibilidad es bastante buena. Sin embargo la especificad es muy baja lo cual indica que hubo muchos datos que fueron incorrectamente clasificados como negativos.
+Nos dice que la precisión y exactitud son buenas, la sensibilidad es bastante buena. Sin embargo la especificidad es muy baja lo cual indica que hubo muchos datos que fueron incorrectamente clasificados como negativos.
+
+Luego usamos como dato a predecir si ha fallecido o a sobrevivido
+
+![imagen](imagenes/matriz_confusion_f.png)
+
+<br/>
+
+Interpretación:
+
+```
+Precision     : 89.44281524926686%
+Sensibilidad  : 88.77749029754204%
+Especificidad : 70.24793388429752%
+Exactitud     : 83.95120784501316%
+```
+
+Nos dice que la precisión, exactitud y sensibilidad son buenas. La especificidad también es buena, esto nos lleva a deducir que el algoritmo usando este valor de predicción es el adecuado.
 
 </p>
 </details>
