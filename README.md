@@ -219,13 +219,22 @@ Nos dice que la precisión, exactitud y sensibilidad son buenas. La especificida
 
 <p>
 
+Se observa en la grafica siguiente que no existe correlación entre las variables por lo que realizar una regresión lineal no es la opción.
+
+![imagen](imagenes/graficas_pares.png)
+
 </p>
 </details>
 
-<details><summary><strong>Árboles de Decisión (<em><a href="notebooks/random_forest.ipynb">notebook</a>)</em></strong> </summary>
+<strong>Clasificación Supervisada</strong>
+<p>
+Usaremos los datos para predecir el fallecimiento o sobreviviencia de un asegurado. Optaremos por usar las siguientes técnicas de clasificación.
+</p>
+
+<details><summary><strong>Árboles de Decisión (<em><a href="notebooks/arbol_decision.ipynb">notebook</a>)</em></strong> </summary>
 <p>
 
-La idea detrás de un árbol de decisión consiste en ir tomando decisiones de forma encadenada e ir descartando soluciones hasta quedarnos con una sola salida, en este caso el valor de la variable `status_patient`. De esta forma el método llamado *random forest*, consiste en tomar varios árboles (bosque) con las siguientes características:
+La idea detrás de un árbol de decisión consiste en ir tomando decisiones de forma encadenada e ir descartando soluciones hasta quedarnos con una sola salida, en este caso el valor de la variable `FALLECIDO`. De esta forma el método llamado *random forest*, consiste en tomar varios árboles (bosque) con las siguientes características:
 
 1. Cada árbol de decisión debe ser independiente.
 1. Cada árbol debe ser entrenado aleatoriamente,
@@ -238,15 +247,15 @@ En este caso se hizo el mismo proceso que con la regresión logística: se separ
 ![imagen](imagenes/matriz_rf.png)
 
 ```
-Precision: 0.9320388349514563
-Exactitud: 0.9238095238095239
-Sensibilidad: 0.9896907216494846
-Especificidad: 0.125
+Precision     : 91.62595952547103%
+Sensibilidad  : 86.04193971166448%
+Especificidad : 78.7422497785651%
+Exactitud     : 84.070796460177%
 ```
 
-Donde vemos que nuevamente la especificidad es bastante baja.
+Vemos nuevamente que los valores de precisión, sensibilidad, especificidad y exactitud son buenos. También se observa que la precisión y especificidad mejoro respecto a la primera matriz de decisión obtenida.
 
-Cada uno de los árboles tiene una forma similar a la siguiente. Se muestra en el ejemplo el árbol 18 del bosque.
+Cada uno de los árboles tiene una forma similar a la siguiente. Se muestra en el ejemplo el árbol 8 del bosque.
 
 ![imagen](imagenes/arbol.png)
 
@@ -263,13 +272,35 @@ Este clasificador se basa en la noción de las características de un objeto que
 Interpretación:
 
 ```
-Precision: 0.8333333333333334
-Exactitud: 0.2571428571428571
-Sensibilidad: 0.16666666666666666
-Especificidad: 0.8
+Precision     : 96.64948453608247%
+Sensibilidad  : 61.75889328063241%
+Especificidad : 94.32314410480349%
+Exactitud     : 70.67687156182731%
 ```
 
-En este caso aunque mejoró considerablemente la especificidad, la exactitud y sensibilidad bajaron demasiado.
+En este caso aunque mejoró la precisión y la especificidad, la exactitud y sensibilidad bajaron demasiado.
+
+</p>
+</details>
+<br/>
+
+<details><summary><strong>Red Neuronal (<em><a href="notebooks/red_neuronal.ipynb">notebook</a>)</em></strong> </summary>
+<p>	
+
+Este clasificador puede entranar con cualquier clase de dato numerico. Se muestran de la misma manera su matriz de confusión y métricas.
+
+![imagen](imagenes/neuronal.png)
+
+Interpretación:
+
+```
+Precision     : 91.23108665749656%
+Sensibilidad  : 86.75604970569%
+Especificidad : 77.29296527159394%
+Exactitud     : 84.2143027983736%
+```
+
+En este caso los valores obtenidos se asemejan a los obtenidos en el arbol de decisión.
 
 </p>
 </details>
@@ -291,10 +322,10 @@ Se obtuvo la siguiente matriz:
 Interpretación:
 
 ```
-Precision: 0.89937106918239
-Exactitud: 0.47564469914040114
-Sensibilidad: 0.4612903225806452
-Especificidad: 0.5897435897435898
+Precision     : 50.14018691588785%
+Sensibilidad  : 28.041290996994643%
+Especificidad : 23.731236597569694%
+Exactitud     : 26.887379198162854%
 ```
 
 Notamos como de todos nuestros modelos fue el peor evaluado.
