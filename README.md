@@ -174,7 +174,11 @@ Luego de los datos revisados se puede deducir que el conjunto de datos nos permi
 
 A continuación se muestran algunas técnicas de predicción basadas en clasificación.
 
-Para analizar los resultados se usó una matriz de confusión. Primero como dato a predecir el SEXO
+<details><summary><strong>Matriz de confusión (<em><a href="notebooks/matriz_decision.ipynb">notebook</a>)</em></strong> </summary>
+
+<p>
+
+Para analizar los resultados se usó una matriz de confusión entrenando el 60% de los datos y como prueba 40%. Primero como dato de salida el SEXO
 
 ![imagen](imagenes/matriz_confusion.png)
 
@@ -191,7 +195,7 @@ Exactitud     : 75.86701745993781%
 
 Nos dice que la precisión y exactitud son buenas, la sensibilidad es bastante buena. Sin embargo la especificidad es muy baja lo cual indica que hubo muchos datos que fueron incorrectamente clasificados como negativos.
 
-Luego usamos como dato a predecir si ha fallecido o a sobrevivido
+Luego usamos como dato de salida si ha fallecido o a sobrevivido
 
 ![imagen](imagenes/matriz_confusion_f.png)
 
@@ -207,6 +211,13 @@ Exactitud     : 83.95120784501316%
 ```
 
 Nos dice que la precisión, exactitud y sensibilidad son buenas. La especificidad también es buena, esto nos lleva a deducir que el algoritmo usando este valor de predicción es el adecuado.
+
+</p>
+</details>
+
+<details><summary><strong>Grafica de pares (<em><a href="notebooks/grafica_pares.ipynb">notebook</a>)</em></strong> </summary>
+
+<p>
 
 </p>
 </details>
