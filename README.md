@@ -226,6 +226,8 @@ Se observa en la grafica siguiente que no existe correlación entre las variable
 </p>
 </details>
 
+<br/>
+
 <strong>Clasificación Supervisada</strong>
 <p>
 Usaremos los datos para predecir el fallecimiento o sobreviviencia de un asegurado. Optaremos por usar las siguientes técnicas de clasificación.
@@ -282,12 +284,11 @@ En este caso aunque mejoró la precisión y la especificidad, la exactitud y sen
 
 </p>
 </details>
-<br/>
 
 <details><summary><strong>Red Neuronal (<em><a href="notebooks/red_neuronal.ipynb">notebook</a>)</em></strong> </summary>
 <p>	
 
-Este clasificador puede entranar con cualquier clase de dato numerico. Se muestran de la misma manera su matriz de confusión y métricas.
+Este clasificador puede entrenar con cualquier clase de dato numerico. Se muestran de la misma manera su matriz de confusión y métricas.
 
 ![imagen](imagenes/neuronal.png)
 
@@ -328,7 +329,7 @@ Especificidad : 23.731236597569694%
 Exactitud     : 26.887379198162854%
 ```
 
-Notamos como de todos nuestros modelos fue el peor evaluado.
+De todos nuestros modelos evaluados fue el de peor resultados.
 
 </p>
 </details>
@@ -339,19 +340,15 @@ Notamos como de todos nuestros modelos fue el peor evaluado.
 
 Con base en los distintos trabajos de análisis y definición de modelos se dan las siguientes conclusiones:
 
-- Los conjuntos de datos originales no son iguales entre sí, por lo que se deben analizar por separado al tener columnas distintas. Motivo por el cuál sólo se hizo el análisis sobre casos de Cáncer de Esófago.
+- Los conjuntos de datos originales no son iguales entre sí, por lo que se deben analizar por separado al tener columnas distintas. Para este caso evaluamos personas fallecidas y con sobrevivencia
 
-- La edad promedio de personas con cáncer de esófago ronda los 50 años (para esta muestra).
+- La edad promedio de personas siniestradas ronda los 53 años (para esta muestra).
 
-- Hay algunos casos *raros* con pacientes de 18 y 95 años.
-
-- En su mayoría los casos se encontraron en OROMIA, las posibles causas se deben a que los pacientes toman alcohol y fuman. En su mayoría tuvieron síntomas como tos, dolor al tragar y pérdida de peso.
+- Hay algunos casos *raros* con pacientes de 19 y 98 años.
 
 - No es posible hacer una regresión lineal dado que la mayoría de datos son categóricos.
 
-- Los mejores modelos de predicción fueron la regresión logística y los árboles de decisión con diferencias mínimas.
-
-- No se sugiere usar el conjunto de datos para detectar si el paciente vivirá, esto se puede apreciar con el cálculo de la especificidad en todos los modelos que se definieron. En todos los casos fue bajo, lo cual nos indica que los datos fueron incorrectamente clasificados como negativos en su mayoría.
+- Los mejores modelos de predicción fueron los árboles de decisión y la red neuronal con diferencias mínimas.
 
 ---
 
@@ -359,8 +356,6 @@ Con base en los distintos trabajos de análisis y definición de modelos se dan 
 
 - Limpiar e integrar todos los conjuntos de datos.
 
-- Recabar información sobre las categorías incluidas en los conjuntos de datos pues algunos datos son desconocidos tales como el género (¿qué significa 0 y qué 1?).
+- Replicar el proceso para todas las causas de fallecimiento para determinar cual es la mayor causistica y con ello tratar de prevenir a nuestros asegurados para tratar de disminuir esta tasa de mortalidad.
 
-- Replicar el proceso para los datos de cáncer colorectal y de próstata. Es probable que con estos conjuntos de datos sí sea posible determinar si el paciente vivirá. 
-
-- Recabar nuevos datos para detectar otros tipos de cancer, integrando en este caso algunos datos cuantitativos además de la edad.
+- Recabar nuevos datos para detectar otros motivos de fallecimiento, integrando en este caso algunos datos cuantitativos además de la edad.
